@@ -5,8 +5,8 @@ This project is composed of two main components:
 - **Backend**: Built with [Golang Fiber](https://gofiber.io/)
 
 You can run the project using one of the two methods:
-1. ✅ **Manual Setup** (run frontend & backend separately)
-2. 🐳 **Docker Setup** (via `docker-compose`)
+1. **Manual Setup** (run frontend & backend separately)
+2. **Docker Setup** (via `docker-compose`)
 
 ---
 

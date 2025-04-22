@@ -52,24 +52,22 @@ project-root/
 
 ### Default user for login:
 ```json
-	{
-		"email":    "admin@example.com",
-		"password": "password",
-	},
-	{
-		"email":    "employee@example.com",
-		"password": "password",
-	},
+  Email     : "admin@example.com"
+  Password  : "password"
 ```
 
 ### Unit Test
 - MacOS or Linux:
 ```bash
+cd superbank-backend
+
 #Running unit test
 ./test.sh
 ```
 - Windows:
 ```bash
+cd superbank-backend
+
 # Create a directory to store test results if it doesn't exist
 mkdir -p test
 
@@ -123,6 +121,16 @@ npm run dev
 docker-compose up --build -d
 ```
 
+### URL Backend
+```bash
+http://localhost:8000
+```
+
+### URL Frontend
+```bash
+http://localhost:3000
+```
+
 ---
 
 ### Notes
@@ -132,3 +140,7 @@ docker-compose up --build -d
 docker-compose down --volumes --remove-orphans
 ```
 - When docker is being built in it will run a unit test which if the unit test is below threshold 95% then the build will be declared failed.
+
+---
+## Documents
+For a functional explanation in this document: [Explain.](documents/explain.md)

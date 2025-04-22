@@ -11,7 +11,7 @@ export const Pie = ({data}: Record<string, IPieChart[]>) => {
     const color = d3
       .scaleOrdinal()
       .domain(data.map((d: IPieChart) => d.name))
-      .range(["#e4e3de", "#a3b18a", "#588157", "#3a5a40", "#344e41"]);
+      .range(["#EF476F", "#FFD166", "#06D6A0", "#118AB2", "#073B4C"]);
 
     const pie = d3
       .pie<IPieChart>()

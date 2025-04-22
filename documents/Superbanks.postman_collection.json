@@ -1,0 +1,581 @@
+{
+	"info": {
+		"_postman_id": "52040402-8a6e-4896-b22c-c79a76e0236d",
+		"name": "Superbanks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11357303",
+		"_collection_link": "https://orange-satellite-269303.postman.co/workspace/My-Workspace~7e6169f3-f6ab-443a-876c-145c57087c78/collection/11357303-52040402-8a6e-4896-b22c-c79a76e0236d?action=share&source=collection_link&creator=11357303"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{:8000}}/login",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "/customer/create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDI5NzMsImlhdCI6MTc0NDY0MjY3MywidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.5cOzjlXUlUKEZuL4DENQKl1WVysXDd0On_UU10mkpjs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Customer 1\",\n    \"phone\": \"08211111111\",\n    \"address\": \"Bandung\",\n    \"parent_name\": \"Mom 1\",\n    \"account_branch\": \"Bandung\",\n    \"account_type\": \"Gold\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{:8000}}/customer/create",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"customer",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customer/list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ5MDQ1NzEsImlhdCI6MTc0NDkwNDI3MSwidXNlcl9pZCI6IjYyZWE4ODQyLWMzMDYtNGMyZC1hMzdmLWQwOTIyYTFiYzY1YyJ9.1mvv1DbRVy1AMpWXTpeRBIynZ7gHF6d5fx6TjpbV1E0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Tantan Suryadinata\",\n    \"phone\": \"082129234449\",\n    \"address\": \"Bandung\",\n    \"parent_name\": \"\",\n    \"account_branch\": \"\",\n    \"account_type\": \"Gold\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{:8000}}/customer/list?page=1&search=ro&limit=10",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"customer",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "search",
+									"value": "ro"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customer/detail/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDI5NzMsImlhdCI6MTc0NDY0MjY3MywidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.5cOzjlXUlUKEZuL4DENQKl1WVysXDd0On_UU10mkpjs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{:8000}}/customer/detail/:id",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"customer",
+								"detail",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4862ec4a-1110-45c2-895a-40ef2dc967eb"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customer/update/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDI5NzMsImlhdCI6MTc0NDY0MjY3MywidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.5cOzjlXUlUKEZuL4DENQKl1WVysXDd0On_UU10mkpjs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"parent_name\": \"Ahmad Andri\",\n    \"account_branch\": \"Bandung\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{:8000}}/customer/update/:id",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"customer",
+								"update",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "b4ec40c5-be17-4ba4-9408-6b1ecf399aca"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/customer/delete/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDI5NzMsImlhdCI6MTc0NDY0MjY3MywidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.5cOzjlXUlUKEZuL4DENQKl1WVysXDd0On_UU10mkpjs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{:8000}}/customer/delete/:id",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"customer",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "b4ec40c5-be17-4ba4-9408-6b1ecf399aca"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "/dashboard",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDI5NzMsImlhdCI6MTc0NDY0MjY3MywidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.5cOzjlXUlUKEZuL4DENQKl1WVysXDd0On_UU10mkpjs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{:8000}}/dashboard",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"dashboard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Deposit",
+			"item": [
+				{
+					"name": "/deposit/create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDI5NzMsImlhdCI6MTc0NDY0MjY3MywidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.5cOzjlXUlUKEZuL4DENQKl1WVysXDd0On_UU10mkpjs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer_id\": \"96dc024b-92f1-4724-8db1-0ba9b36e6ab1\",\n  \"amount\": 100000,\n  \"interest_rate\": 5.5,\n  \"term_months\": 12,\n  \"start_date\": \"2025-04-15\",\n  \"note\": \"Initial deposit for 1-year term\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{:8000}}/deposit/create",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"deposit",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pocket",
+			"item": [
+				{
+					"name": "/pocket/create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDI5NzMsImlhdCI6MTc0NDY0MjY3MywidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.5cOzjlXUlUKEZuL4DENQKl1WVysXDd0On_UU10mkpjs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer_id\": \"96dc024b-92f1-4724-8db1-0ba9b36e6ab1\",\n  \"name\": \"Tabungan\"\n//   \"targetAmount\": 1000000,\n//   \"targetDate\": \"2025-12-31\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{:8000}}/pocket/create",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"pocket",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/pocket/topup/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDI5NzMsImlhdCI6MTc0NDY0MjY3MywidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.5cOzjlXUlUKEZuL4DENQKl1WVysXDd0On_UU10mkpjs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 50000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{:8000}}/pocket/topup/:id",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"pocket",
+								"topup",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c2977e3d-ddfa-4317-968a-5fb2da06edbd"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/pocket/withdrawn/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDI5NzMsImlhdCI6MTc0NDY0MjY3MywidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.5cOzjlXUlUKEZuL4DENQKl1WVysXDd0On_UU10mkpjs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 50000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{:8000}}/pocket/withdrawn/:id",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"pocket",
+								"withdrawn",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c2977e3d-ddfa-4317-968a-5fb2da06edbd"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/pocket/deactive/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDI5NzMsImlhdCI6MTc0NDY0MjY3MywidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.5cOzjlXUlUKEZuL4DENQKl1WVysXDd0On_UU10mkpjs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{:8000}}/pocket/deactive/:id",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"pocket",
+								"deactive",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c2977e3d-ddfa-4317-968a-5fb2da06edbd"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "/user/create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDk3ODAsImlhdCI6MTc0NDY0OTQ4MCwidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.yok7x8I6gerlqmwfFC4ceDvFT6jAyY_SGIMKBZt-c9s",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"gantira@example.com\",\n  \"username\": \"gantira\",\n  \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{:8000}}/user/create",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDI5NzMsImlhdCI6MTc0NDY0MjY3MywidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.5cOzjlXUlUKEZuL4DENQKl1WVysXDd0On_UU10mkpjs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{:8000}}/user/list?page=1&limit=10",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"user",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/detail/:id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDI5NzMsImlhdCI6MTc0NDY0MjY3MywidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.5cOzjlXUlUKEZuL4DENQKl1WVysXDd0On_UU10mkpjs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{:8000}}/user/detail/:id",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"user",
+								"detail",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "a7d9ca60-6790-4035-a3d3-b95467793151"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/detail/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDQ2NDI5NzMsImlhdCI6MTc0NDY0MjY3MywidXNlcl9pZCI6IjE1YTYzODg0LTAzNmItNDQ2My05NjIyLTc4NDFhM2FjNjgzMiJ9.5cOzjlXUlUKEZuL4DENQKl1WVysXDd0On_UU10mkpjs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{:8000}}/user/delete/:id",
+							"host": [
+								"{{:8000}}"
+							],
+							"path": [
+								"user",
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "a7d9ca60-6790-4035-a3d3-b95467793151"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
